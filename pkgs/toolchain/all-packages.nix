@@ -9,4 +9,5 @@ let
 in rec {
   zlib = callPackage ./zlib { inherit buildScripts; };
   libzip = callPackage ./libzip { inherit zlib buildScripts; };
+  libelf = callPackage ./libelf { inherit buildScripts; };
 }
