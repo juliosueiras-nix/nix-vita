@@ -14,5 +14,9 @@
       packages.x86_64-linux = import ./pkgs/toolchain/all-packages.nix {
         inherit (pkgs) callPackage;
       };
+
+      hydraJobs = {
+        default = self.packages.x86_64-linux;
+      };
     };
 }
