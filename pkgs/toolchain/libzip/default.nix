@@ -1,4 +1,4 @@
-{ stdenv, buildScripts, cmake, zlib, ... }:
+{ stdenv, buildScripts, fetchFromGitHub, cmake, zlib, ... }:
 
 stdenv.mkDerivation {
   name = "libzip";
@@ -7,10 +7,11 @@ stdenv.mkDerivation {
     cmake
   ];
 
-  src = fetchTree {
-    type = "git";
-    url = "https://github.com/vitasdk/libzip";
+  src = fetchFromGitHub {
+    owner = "vitasdk";
+    repo = "libzip";
     rev = "33fb70457b5dc6a6c95387b0b12d873696419878";
+    sha256 = "gHVay+LDujkUqzzNSuLPL/DuKljAamNjd2oAgq3G++U=";
   };
 
   cmakeFlags = [

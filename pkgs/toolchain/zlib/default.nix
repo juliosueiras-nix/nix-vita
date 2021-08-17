@@ -1,4 +1,4 @@
-{ stdenv, buildScripts, cmake, ... }:
+{ stdenv, buildScripts, fetchzip, cmake, ... }:
 
 let
   ZLIB_VERSION = "1.2.11";
@@ -9,10 +9,9 @@ in stdenv.mkDerivation {
     cmake
   ];
 
-  src = fetchTree {
-    type = "tarball";
+  src = fetchzip {
     url = "http://downloads.sourceforge.net/project/libpng/zlib/${ZLIB_VERSION}/zlib-${ZLIB_VERSION}.tar.xz";
-    narHash = "sha256-AQIoy96jcdmKs/F4GVqDFXxcZ7c66GF+yalHg3ALEyU=";
+    sha256 = "AQIoy96jcdmKs/F4GVqDFXxcZ7c66GF+yalHg3ALEyU=";
   };
 
   patches = [

@@ -1,10 +1,11 @@
-{ callPackage, ... }:
+{ callPackage, fetchFromGitHub, ... }:
 
 let
-  buildScripts = fetchTree {
-    type = "git";
-    url = "https://github.com/vitasdk/buildscripts";
+  buildScripts = fetchFromGitHub {
+    repo = "buildscripts";
+    owner = "vitasdk";
     rev = "8e16fc172d71aeff9e2445cb08819d57d261293d";
+    sha256 = "fqMwAFegJzS6E/JWMAzFvNI0cj8BTYSVkqjZWLGWoqE=";
   };
 in rec {
   zlib = callPackage ./zlib { inherit buildScripts; };

@@ -1,4 +1,4 @@
-{ stdenv, buildScripts, autoreconfHook, ... }:
+{ stdenv, buildScripts, fetchzip, autoreconfHook, ... }:
 
 let
   LIBELF_VERSION = "0.8.13";
@@ -9,10 +9,9 @@ in stdenv.mkDerivation {
     autoreconfHook
   ];
 
-  src = fetchTree {
-    type = "tarball";
+  src = fetchzip {
     url = "https://github.com/vitasdk/artifacts/releases/download/libelf-${LIBELF_VERSION}/libelf-${LIBELF_VERSION}.tar.gz";
-    narHash = "sha256-i39QjqiRopt/Tk69AAHURSY4QhVKxrQjbpXgLZJYlHg=";
+    sha256 = "i39QjqiRopt/Tk69AAHURSY4QhVKxrQjbpXgLZJYlHg=";
   };
 
   configureFlags = [

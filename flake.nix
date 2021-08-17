@@ -12,7 +12,7 @@
       };
     in {
       packages.x86_64-linux = import ./pkgs/toolchain/all-packages.nix {
-        inherit (pkgs) callPackage;
+        inherit (pkgs) callPackage fetchFromGitHub;
       };
 
       hydraJobs = {
