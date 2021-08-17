@@ -1,9 +1,13 @@
-{ stdenv, buildScripts, ... }:
+{ stdenv, buildScripts, autoreconfHook, ... }:
 
 let
   LIBELF_VERSION = "0.8.13";
 in stdenv.mkDerivation {
   name = "libelf";
+
+  buildInputs = [
+    autoreconfHook
+  ];
 
   src = fetchTree {
     type = "tarball";
